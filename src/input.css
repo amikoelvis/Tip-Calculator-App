@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+/* for colors */
+--color-primary-green-400: hsl(172, 67%, 45%);
+
+--color-neutral-green-900: hsl(183, 100%, 15%);
+--color-neutral-grey-500: hsl(186, 14%, 43%);
+--color-neutral-grey-400: hsl(184, 14%, 56%);
+--color-neutral-grey-200: hsl(185, 41%, 84%);
+--color-neutral-grey-50: hsl(189, 47%, 97%);
+--color-neutral-white: hsl(0, 100%, 100%);
+
+/* for font family */
+--font-space-mono: "Space Mono", sans-serif;
+
+/* for font sizes */
+--text-form-input: 1.5rem;
+}
