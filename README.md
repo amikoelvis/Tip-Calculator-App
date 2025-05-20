@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Tip Calculator Screenshot](./images/screenshot.jpg)
+![Tip Calculator Screenshot](./images/screenshot.png)
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/yourusername/tip-calculator) <!-- Replace with your repo URL -->
-- Live Site URL: [Live Demo](https://yourusername.github.io/tip-calculator) <!-- Replace with your live site URL -->
+- Solution URL: [GitHub Repository](https://github.com/amikoelvis/Tip-Calculator-App)
+- Live Site URL: [Live Demo](https://tip-calculator-app-puce-five.vercel.app/)
 
 ## My Process
 
@@ -101,7 +101,7 @@ billInput.addEventListener("input", () => {
 
 ## Author
 
-- Website - [Amiko Elvis](https://time-tracking-dashboard-inky-chi.vercel.app/)
+- Website - [Amiko Elvis](https://tip-calculator-app-puce-five.vercel.app/)
 - Frontend Mentor - [@amikoelvis](https://www.frontendmentor.io/profile/amikoelvis)
 - Twitter - [@ElvisAmiko](https://www.twitter.com/ElvisAmiko)
 

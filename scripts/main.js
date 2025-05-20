@@ -14,21 +14,25 @@ function calculateTip() {
   const bill = parseFloat(billInput.value) || 0;
   const people = parseInt(peopleInput.value);
 
-  // Show error if people is 0 or input is empty (initial state with placeholder 0)
-  if (people === 0 || isNaN(people)) {
+  // Show error and red border if people is 0 or empty, and bill > 0 and tip > 0
+  if ((people === 0 || isNaN(people)) && bill > 0 && selectedTip > 0) {
     peopleInput.classList.add('border-red-500');
+    peopleInput.classList.remove('border-neutral-grey-50');
+    peopleInput.style.border = '2px solid rgb(239, 68, 68)'; // Fallback
     peopleError.classList.remove('hidden');
     tipAmountDisplay.textContent = '$0.00';
     totalAmountDisplay.textContent = '$0.00';
     return;
   }
 
-  // Hide error for negative or valid inputs
+  // Hide error and red border for all other cases
   peopleInput.classList.remove('border-red-500');
+  peopleInput.classList.add('border-neutral-grey-50');
+  peopleInput.style.border = ''; // Clear fallback
   peopleError.classList.add('hidden');
 
-  // Skip calculations if inputs are invalid (negative people, bill <= 0, or no tip)
-  if (people < 0 || bill <= 0 || selectedTip <= 0) {
+  // Skip calculations if inputs are invalid (people <= 0, bill <= 0, or no tip)
+  if (people <= 0 || bill <= 0 || selectedTip <= 0) {
     tipAmountDisplay.textContent = '$0.00';
     totalAmountDisplay.textContent = '$0.00';
     return;
@@ -45,13 +49,11 @@ function calculateTip() {
 // Tip button click handlers
 tipButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // Reset all buttons to default state
     tipButtons.forEach(btn => {
       btn.classList.remove('bg-primary-green-400', 'text-neutral-green-900');
       btn.classList.add('bg-neutral-green-900', 'text-neutral-white');
       if (btn.dataset.tip === 'custom') btn.textContent = 'Custom';
     });
-    // Set active state for clicked button
     button.classList.remove('bg-neutral-green-900', 'text-neutral-white');
     button.classList.add('bg-primary-green-400', 'text-neutral-green-900');
 
@@ -82,11 +84,8 @@ resetButton.addEventListener('click', () => {
   });
   tipAmountDisplay.textContent = '$0.00';
   totalAmountDisplay.textContent = '$0.00';
-  peopleInput.classList.add('border-red-500');
-  peopleError.classList.remove('hidden');
+  peopleInput.classList.remove('border-red-500');
+  peopleInput.classList.add('border-neutral-grey-50');
+  peopleInput.style.border = ''; // Clear fallback
+  peopleError.classList.add('hidden');
 });
-
-// Initialize error state on page load (due to placeholder 0)
-peopleInput.classList.add('border-red-500');
-peopleError.classList.remove('hidden');
-calculateTip();
